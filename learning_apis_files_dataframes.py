@@ -109,8 +109,18 @@ for toCurrency in toCurrencies:
 
 #%%
 #### Dataframes
+import pandas as pd
+
+namesDF = pd.read_excel('excel_data.xlsx')
+
+# Exploring the dataframe
+print(namesDF)
+print(namesDF.iloc[0])
+print(namesDF['name'])
 
 
+namesDF['check_fav_number'] = namesDF['fav_number'].apply(lambda x: 'Even' if x%2==0 else 'Odd')
+namesDF
 
 
 #%%
@@ -120,3 +130,12 @@ a = (1,2,3)
 b = [1,2,3]
 c = [4,5,6]
 d = (4,5,6)
+
+## Lambda functions
+add_num = lambda n1,n2: n1+n2
+hello_the_message = lambda name,msg: f'Hello, {name}! {msg}'
+
+print(add_num(45,60))
+print(hello_the_message('Janani','It is a wonderful day!'))
+
+# %%

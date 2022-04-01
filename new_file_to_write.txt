@@ -1,0 +1,17 @@
+My name is: Pragith
+I am a boy
+I am appending a new sentence
+A random number is: 0.8078790906142361
+A random number is: 0.7874218731992887
+A random number is: 0.8464641623718547
+A random number is: 0.7900782808372138
+A random number is: 0.343851027889553
+The 1 random number is: 8
+The 2 random number is: 7
+The 3 random number is: 8
+The 4 random number is: 15
+The 5 random number is: 18
+The 6 random number is: 7
+The 7 random number is: 19
+The 8 random number is: 18
+The 9 random number is: 11

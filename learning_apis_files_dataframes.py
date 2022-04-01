@@ -47,10 +47,65 @@ z.close()
 #%%
 #### APIs
 
+###### Single From and To Currency Converter ######
+import requests
+
+# User variables
+forexAmount = 35
+fromCurrency = 'USD'
+toCurrency = 'INR'
 
 
+# Program variables
+API_URL = f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={fromCurrency}&to_currency={toCurrency}&apikey=6H7O7NFYFOROM4V3'
 
 
+# Make the API call
+responseObj = requests.get(API_URL)
+
+# Understand the API response
+#print(responseObj.headers)
+#print(responseObj.status_code)
+#print(responseObj.text)
+
+# Extract data from the API response
+responseData = responseObj.json()
+forexRate = float(responseData['Realtime Currency Exchange Rate']['5. Exchange Rate'])
+
+# Calculate the converted forex amount
+convertedAmount = forexAmount * forexRate
+
+print(f'{fromCurrency} {forexAmount} = {toCurrency} {convertedAmount}')
+
+##############################################################
+
+
+#%%
+###### Single From and Multiple To Currency Converter ########
+import requests
+
+# User variables
+forexAmount = 35
+fromCurrency = 'USD'
+toCurrencies = ['CAD', 'INR', 'EUR', 'GBP']
+
+for toCurrency in toCurrencies:
+    # Program variables
+    API_URL = f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={fromCurrency}&to_currency={toCurrency}&apikey=6H7O7NFYFOROM4V3'
+
+    # Make the API call
+    responseObj = requests.get(API_URL)
+
+    # Extract data from the API response
+    responseData = responseObj.json()
+    forexRate = float(responseData['Realtime Currency Exchange Rate']['5. Exchange Rate'])
+
+    # Calculate the converted forex amount
+    convertedAmount = forexAmount * forexRate
+
+    print(f'{fromCurrency} {forexAmount} = {toCurrency} {convertedAmount}')
+
+##############################################################
 
 #%%
 #### Dataframes
